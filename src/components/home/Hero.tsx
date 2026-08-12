@@ -1,5 +1,13 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+
+import TransitionLink from "@/components/motion/TransitionLink";
+
+const areas = [
+  "Redes e infraestructura",
+  "Seguridad y cámaras",
+  "Desarrollo web",
+  "Equipos y soporte",
+];
 
 export default function Hero() {
   return (
@@ -12,132 +20,168 @@ export default function Hero() {
       <div
         className="
           pointer-events-none
-          absolute left-[35%] -top-45
-          h-170 w-205
+          absolute left-[32%] -top-52
+          h-180 w-220
           rounded-full
           bg-[#00D5FF]/10
-          blur-[150px]
+          blur-[160px]
         "
       />
 
       <div
         className="
           relative mx-auto
-          grid min-h-197.5
+          grid min-h-205
           max-w-7xl
           items-center
+          gap-16
           px-6 py-24
           sm:px-8
-          lg:grid-cols-[1.15fr_0.55fr]
+          lg:grid-cols-[1.2fr_0.5fr]
           lg:gap-24
           lg:py-28
         "
       >
         <div>
-          <p
+          <div
             className="
               mb-9
-              text-sm font-semibold
-              uppercase
-              tracking-[0.18em]
-              text-[#5A7C99]
+              flex items-center gap-4
             "
           >
-            Tecnología · Infraestructura · Uruguay
-          </p>
+            <span
+              className="
+                text-sm font-semibold
+                tracking-[-0.02em]
+                text-[#0D1523]
+              "
+            >
+              Lynk
+            </span>
+
+            <span className="h-px w-8 bg-[#00B8E6]" />
+
+            <p
+              className="
+                text-xs font-semibold
+                uppercase
+                tracking-[0.18em]
+                text-[#5A7C99]
+              "
+            >
+              Tecnología · Infraestructura · Uruguay
+            </p>
+          </div>
 
           <h1
             className="
               max-w-5xl
-              text-[4.6rem]
+              text-[4.7rem]
               font-semibold
               leading-[0.84]
               tracking-[-0.07em]
               text-[#0D1523]
-              sm:text-[6rem]
-              lg:text-[7.7rem]
+              sm:text-[6.1rem]
+              lg:text-[7.8rem]
             "
           >
-            Tecnología que
-            <br />
-            conecta
+            Conectamos
             <br />
 
-            <span>tu </span>
-
-            <span
-              className="
-                font-serif
-                font-normal italic
-                tracking-tight
-                text-[#00B8E6]
-              "
-            >
-              negocio.
+            <span className="text-[#00B8E6]">
+              tecnología
             </span>
-          </h1>
 
-          <p
-            className="
-              mt-10 max-w-2xl
-              text-lg leading-8
-              text-[#647586]
-              sm:text-xl
-            "
-          >
-            Redes, seguridad, infraestructura, desarrollo y soporte
-            tecnológico para empresas, comercios y proyectos que necesitan
-            soluciones confiables.
-          </p>
+            <br />
+            con tu negocio.
+          </h1>
 
           <div
             className="
-              mt-10 flex flex-wrap
-              items-center gap-7
+              mt-12 grid gap-10
+              border-t border-black/10
+              pt-8
+              lg:grid-cols-[1fr_auto]
+              lg:items-end
             "
           >
-            <Link
-              href="/servicios"
-              className="
-                group inline-flex
-                items-center gap-3
-                rounded-full
-                bg-[#0D1523]
-                px-6 py-3.5
-                text-sm font-semibold
-                text-white
-                transition-colors
-                hover:bg-[#31465B]
-              "
-            >
-              Ver servicios
-
-              <ArrowRight
-                size={18}
+            <div>
+              <p
                 className="
-                  transition-transform duration-300
-                  group-hover:translate-x-1
+                  max-w-2xl
+                  text-lg leading-8
+                  text-[#647586]
+                  sm:text-xl
                 "
-              />
-            </Link>
+              >
+                Redes, seguridad, infraestructura, desarrollo y soporte
+                tecnológico para empresas y proyectos que necesitan soluciones
+                confiables.
+              </p>
 
-            <Link
-              href="/contacto"
+              <p
+                className="
+                  mt-5
+                  text-sm font-medium
+                  text-[#31465B]
+                "
+              >
+                <span className="font-semibold text-[#00B8E6]">
+                  Lynk
+                </span>{" "}
+                conecta las piezas para que todo funcione mejor.
+              </p>
+            </div>
+
+            <div
               className="
-                text-sm font-semibold
-                text-[#31465B]
-                transition-colors
-                hover:text-[#00B8E6]
+                flex flex-wrap
+                items-center gap-6
               "
             >
-              Hablemos →
-            </Link>
+              <TransitionLink
+                href="/servicios"
+                className="
+                  group inline-flex
+                  items-center gap-3
+                  border-b border-[#0D1523]
+                  pb-1.5
+                  text-base font-semibold
+                  text-[#0D1523]
+                  transition-colors duration-300
+                  hover:border-[#00B8E6]
+                  hover:text-[#00B8E6]
+                "
+              >
+                Ver servicios
+
+                <ArrowUpRight
+                  size={19}
+                  className="
+                    transition-transform duration-300
+                    group-hover:-translate-y-0.5
+                    group-hover:translate-x-0.5
+                  "
+                />
+              </TransitionLink>
+
+              <TransitionLink
+                href="/contacto"
+                className="
+                  text-base font-semibold
+                  text-[#5A7C99]
+                  transition-colors duration-300
+                  hover:text-[#0D1523]
+                "
+              >
+                Hablemos
+              </TransitionLink>
+            </div>
           </div>
         </div>
 
         <aside
           className="
-            mt-16
             border-l border-black/10
             pl-8
             lg:mt-24
@@ -151,23 +195,44 @@ export default function Hero() {
               text-[#5A7C99]
             "
           >
-            Áreas
+            Lo que conectamos
           </p>
 
-          <div
-            className="
-              mt-8 space-y-5
-              text-xl font-semibold
-              leading-tight
-              tracking-[-0.035em]
-              text-[#31465B]
-              lg:text-2xl
-            "
-          >
-            <p>Redes e infraestructura</p>
-            <p>Seguridad y cámaras</p>
-            <p>Desarrollo web</p>
-            <p>Equipos y soporte</p>
+          <div className="mt-8">
+            {areas.map((area, index) => (
+              <div
+                key={area}
+                className="
+                  flex items-start gap-4
+                  border-b border-black/8
+                  py-5
+                  first:pt-0
+                "
+              >
+                <span
+                  className="
+                    pt-1
+                    font-mono
+                    text-xs
+                    text-[#00B8E6]
+                  "
+                >
+                  /0{index + 1}
+                </span>
+
+                <p
+                  className="
+                    text-xl font-semibold
+                    leading-tight
+                    tracking-[-0.035em]
+                    text-[#31465B]
+                    lg:text-2xl
+                  "
+                >
+                  {area}
+                </p>
+              </div>
+            ))}
           </div>
         </aside>
       </div>

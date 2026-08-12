@@ -29,10 +29,10 @@ export default function Footer() {
               width={220}
               height={90}
               className="
-                h-auto
-                w-37,5
-                object-contain
-              "
+    h-auto
+    w-37.5
+    object-contain
+  "
             />
 
             <p
@@ -156,7 +156,6 @@ export default function Footer() {
                   "
                 >
                   contacto@lynk.uy
-
                   <ArrowUpRight
                     size={16}
                     className="

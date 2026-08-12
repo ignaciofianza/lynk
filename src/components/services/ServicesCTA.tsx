@@ -3,12 +3,12 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
 import TransitionLink from "@/components/motion/TransitionLink";
 
-export default function ContactCTA() {
+export default function ServicesCTA() {
   return (
     <section
       className="
-        border-t border-black/10
-        bg-[#F7F9FA]
+        border-t border-black/8
+        bg-[#F2F6F8]
         px-6
         sm:px-8
       "
@@ -37,7 +37,7 @@ export default function ContactCTA() {
                 text-[#5A7C99]
               "
             >
-              /04 — Contacto
+              /03 — ¿Algo distinto?
             </p>
           </div>
 
@@ -50,14 +50,14 @@ export default function ContactCTA() {
                 tracking-[-0.06em]
                 text-[#0D1523]
                 sm:text-6xl
-                lg:text-[5.7rem]
+                lg:text-[5.5rem]
               "
             >
-              El próximo
+              No todo entra
               <br className="hidden sm:block" />
-              punto de conexión
+              en una lista de
               <span className="ml-3 text-[#00B8E6]">
-                puede ser el tuyo.
+                servicios.
               </span>
             </h2>
 
@@ -79,9 +79,19 @@ export default function ContactCTA() {
                     sm:text-xl
                   "
                 >
-                  Contanos qué necesitás resolver. En lynk entendemos el
-                  problema, conectamos las piezas y buscamos una solución que
-                  tenga sentido para tu proyecto.
+                  Si tenés una necesidad particular, contanos el problema.
+                  Podemos combinar distintas áreas de lynk y pensar una solución
+                  específica para tu proyecto.
+                </p>
+
+                <p
+                  className="
+                    mt-5
+                    text-sm font-medium
+                    text-[#5A7C99]
+                  "
+                >
+                  Una necesidad · Distintas piezas · Una solución
                 </p>
               </div>
 
@@ -99,7 +109,7 @@ export default function ContactCTA() {
                   hover:text-[#00B8E6]
                 "
               >
-                Conectemos
+                Contanos tu caso
 
                 <ArrowUpRight
                   size={20}

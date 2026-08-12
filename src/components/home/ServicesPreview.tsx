@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import Reveal from "@/components/motion/Reveal";
+import TransitionLink from "@/components/motion/TransitionLink";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { services } from "@/data/services";
 
@@ -36,26 +36,18 @@ export default function ServicesPreview() {
                 className="
                   max-w-5xl
                   text-5xl font-semibold
-                  leading-[0.96]
-                  tracking-[-0.055em]
+                  leading-[0.94]
+                  tracking-[-0.06em]
                   text-[#0D1523]
                   sm:text-6xl
-                  lg:text-[4.7rem]
+                  lg:text-[5.1rem]
                 "
               >
-                Soluciones tecnológicas
+                Distintas necesidades.
                 <br className="hidden sm:block" />
-                para{" "}
-                <span
-                  className="
-                    font-serif
-                    inline-block
-                    font-normal italic
-                    tracking-[-0.02em]
-                    text-[#00B8E6]
-                  "
-                >
-                  necesidades reales.
+                Una misma forma de
+                <span className="ml-3 text-[#00B8E6]">
+                  resolverlas.
                 </span>
               </h2>
 
@@ -67,9 +59,9 @@ export default function ServicesPreview() {
                   sm:text-xl
                 "
               >
-                Desde una red estable hasta una nueva plataforma web,
-                buscamos resolver cada proyecto con una solución clara y
-                adecuada.
+                En lynk conectamos infraestructura, seguridad, desarrollo y
+                soporte para construir soluciones que realmente tengan sentido
+                para cada proyecto.
               </p>
             </div>
           </div>
@@ -81,11 +73,11 @@ export default function ServicesPreview() {
               key={service.title}
               delay={index * 0.04}
             >
-              <Link
+              <TransitionLink
                 href="/servicios"
                 className="
-                  group grid
-                  gap-7
+                  group relative
+                  grid gap-7
                   border-b border-black/10
                   py-12
                   transition-colors duration-300
@@ -98,9 +90,21 @@ export default function ServicesPreview() {
               >
                 <span
                   className="
+                    absolute bottom-0 left-0
+                    h-px w-0
+                    bg-[#00B8E6]
+                    transition-all duration-500
+                    group-hover:w-full
+                  "
+                />
+
+                <span
+                  className="
                     font-mono
                     text-sm
                     text-[#5A7C99]
+                    transition-colors duration-300
+                    group-hover:text-[#00B8E6]
                   "
                 >
                   /{service.number}
@@ -109,11 +113,11 @@ export default function ServicesPreview() {
                 <h3
                   className="
                     text-4xl font-semibold
-                    leading-none
-                    tracking-tighter
+                    leading-[0.96]
+                    tracking-[-0.045em]
                     text-[#0D1523]
                     sm:text-5xl
-                    lg:text-[3.5rem]
+                    lg:text-[3.6rem]
                   "
                 >
                   {service.title}
@@ -152,7 +156,7 @@ export default function ServicesPreview() {
                     "
                   />
                 </span>
-              </Link>
+              </TransitionLink>
             </Reveal>
           ))}
         </div>

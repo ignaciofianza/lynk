@@ -1,10 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight, Menu, X } from "lucide-react";
+import {
+  ArrowUpRight,
+  Menu,
+  X,
+} from "lucide-react";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+
+import TransitionLink from "@/components/motion/TransitionLink";
 
 const links = [
   {
@@ -42,21 +47,30 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const handleKeyDown = (
+      event: KeyboardEvent,
+    ) => {
       if (event.key === "Escape") {
         setOpen(false);
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener(
+      "keydown",
+      handleKeyDown,
+    );
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener(
+        "keydown",
+        handleKeyDown,
+      );
     };
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    document.body.style.overflow =
+      open ? "hidden" : "";
 
     return () => {
       document.body.style.overflow = "";
@@ -96,7 +110,7 @@ export default function Navbar() {
             sm:h-20 sm:px-8
           "
         >
-          <Link
+          <TransitionLink
             href="/"
             aria-label="Ir al inicio de lynk"
             onClick={closeMenu}
@@ -118,7 +132,7 @@ export default function Navbar() {
                 sm:h-12 sm:w-12
               "
             />
-          </Link>
+          </TransitionLink>
 
           <nav
             className="
@@ -129,17 +143,20 @@ export default function Navbar() {
             "
           >
             {links.map((link) => {
-              const active = isActive(link.href);
+              const active = isActive(
+                link.href,
+              );
 
               return (
-                <Link
+                <TransitionLink
                   key={link.href}
                   href={link.href}
                   className={`
                     group relative
                     py-2
                     text-sm font-medium
-                    transition-colors duration-300
+                    transition-colors
+                    duration-300
 
                     ${
                       active
@@ -152,20 +169,26 @@ export default function Navbar() {
 
                   <span
                     className={`
-                      absolute bottom-0 left-0
+                      absolute
+                      bottom-0 left-0
                       h-px
                       bg-[#00B8E6]
-                      transition-all duration-300
+                      transition-all
+                      duration-300
 
-                      ${active ? "w-full" : "w-0 group-hover:w-full"}
+                      ${
+                        active
+                          ? "w-full"
+                          : "w-0 group-hover:w-full"
+                      }
                     `}
                   />
-                </Link>
+                </TransitionLink>
               );
             })}
           </nav>
 
-          <Link
+          <TransitionLink
             href="/contacto"
             className="
               group hidden
@@ -189,17 +212,26 @@ export default function Navbar() {
             <ArrowUpRight
               size={16}
               className="
-                transition-transform duration-300
+                transition-transform
+                duration-300
                 group-hover:-translate-y-0.5
                 group-hover:translate-x-0.5
               "
             />
-          </Link>
+          </TransitionLink>
 
           <button
             type="button"
-            onClick={() => setOpen((current) => !current)}
-            aria-label={open ? "Cerrar menú" : "Abrir menú"}
+            onClick={() =>
+              setOpen(
+                (current) => !current,
+              )
+            }
+            aria-label={
+              open
+                ? "Cerrar menú"
+                : "Abrir menú"
+            }
             aria-expanded={open}
             aria-controls="mobile-navigation"
             className="
@@ -217,9 +249,15 @@ export default function Navbar() {
             "
           >
             {open ? (
-              <X size={20} strokeWidth={1.8} />
+              <X
+                size={20}
+                strokeWidth={1.8}
+              />
             ) : (
-              <Menu size={20} strokeWidth={1.8} />
+              <Menu
+                size={20}
+                strokeWidth={1.8}
+              />
             )}
           </button>
         </div>
@@ -227,12 +265,15 @@ export default function Navbar() {
         <div
           id="mobile-navigation"
           className={`
-            absolute left-0 right-0 top-full
+            absolute
+            left-0 right-0 top-full
             overflow-hidden
             border-b border-black/8
             bg-[#F7F9FA]
-            shadow-xl shadow-[#0D1523]/5
-            transition-all duration-300
+            shadow-xl
+            shadow-[#0D1523]/5
+            transition-all
+            duration-300
             md:hidden
 
             ${
@@ -250,68 +291,86 @@ export default function Navbar() {
             "
           >
             <div className="border-t border-black/8">
-              {links.map((link, index) => {
-                const active = isActive(link.href);
+              {links.map(
+                (link, index) => {
+                  const active =
+                    isActive(link.href);
 
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={closeMenu}
-                    className={`
-                      group relative
-                      flex items-center
-                      justify-between
-                      border-b border-black/8
-                      py-5
-                      transition-colors duration-300
-
-                      ${active ? "text-[#00B8E6]" : "text-[#0D1523]"}
-                    `}
-                  >
-                    <span
-                      className="
-                        text-[1.8rem]
-                        font-semibold
-                        leading-none
-                        tracking-[-0.04em]
-                      "
-                    >
-                      {link.label}
-                    </span>
-
-                    <span
+                  return (
+                    <TransitionLink
+                      key={link.href}
+                      href={link.href}
+                      onClick={
+                        closeMenu
+                      }
                       className={`
-                        font-mono
-                        text-xs
-                        transition-colors duration-300
+                        group relative
+                        flex items-center
+                        justify-between
+                        border-b
+                        border-black/8
+                        py-5
+                        transition-colors
+                        duration-300
 
                         ${
                           active
                             ? "text-[#00B8E6]"
-                            : "text-[#5A7C99] group-hover:text-[#00B8E6]"
+                            : "text-[#0D1523]"
                         }
                       `}
                     >
-                      /0{index + 1}
-                    </span>
+                      <span
+                        className="
+                          text-[1.8rem]
+                          font-semibold
+                          leading-none
+                          tracking-[-0.04em]
+                        "
+                      >
+                        {link.label}
+                      </span>
 
-                    <span
-                      className={`
-                        absolute bottom-0 left-0
-                        h-px
-                        bg-[#00B8E6]
-                        transition-all duration-300
+                      <span
+                        className={`
+                          font-mono
+                          text-xs
+                          transition-colors
+                          duration-300
 
-                        ${active ? "w-14" : "w-0"}
-                      `}
-                    />
-                  </Link>
-                );
-              })}
+                          ${
+                            active
+                              ? "text-[#00B8E6]"
+                              : "text-[#5A7C99] group-hover:text-[#00B8E6]"
+                          }
+                        `}
+                      >
+                        /0{index + 1}
+                      </span>
+
+                      <span
+                        className={`
+                          absolute
+                          bottom-0 left-0
+                          h-px
+                          bg-[#00B8E6]
+                          transition-all
+                          duration-300
+
+                          ${
+                            active
+                              ? "w-14"
+                              : "w-0"
+                          }
+                        `}
+                      />
+                    </TransitionLink>
+                  );
+                },
+              )}
             </div>
 
-            <Link
+            <TransitionLink
               href="/contacto"
               onClick={closeMenu}
               className="
@@ -332,17 +391,19 @@ export default function Navbar() {
               <ArrowUpRight
                 size={18}
                 className="
-                  transition-transform duration-300
+                  transition-transform
+                  duration-300
                   group-hover:-translate-y-0.5
                   group-hover:translate-x-0.5
                 "
               />
-            </Link>
+            </TransitionLink>
 
             <div
               className="
                 mt-6 flex
-                items-center justify-between
+                items-center
+                justify-between
                 text-[10px]
                 font-semibold uppercase
                 tracking-[0.16em]
@@ -350,7 +411,9 @@ export default function Navbar() {
               "
             >
               <span>lynk.uy</span>
-              <span>Montevideo, Uruguay</span>
+              <span>
+                Montevideo, Uruguay
+              </span>
             </div>
           </nav>
         </div>
