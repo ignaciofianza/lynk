@@ -1,26 +1,63 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cyan: #00d5ff;
+  --cyan-dark: #00b8e6;
+
+  --blue-gray: #5a7c99;
+  --slate: #31465b;
+
+  --navy: #0d1523;
+  --black: #070b12;
+
+  --background: #f7f9fa;
+  --foreground: #0d1523;
+  --muted: #647586;
+
+  --border: rgba(13, 21, 35, 0.12);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+svg {
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+.font-serif {
+  font-family: var(--font-serif), serif;
+}
+
+::selection {
+  background: var(--cyan);
+  color: var(--black);
 }

@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# lynk
 
-## Getting Started
+Sitio web oficial de **lynk**, una propuesta orientada a soluciones tecnológicas, infraestructura, redes, seguridad, desarrollo web y soporte.
 
-First, run the development server:
+El proyecto busca construir una presencia digital clara, moderna y profesional para la marca, manteniendo una identidad visual propia y una experiencia cuidada en escritorio y dispositivos móviles.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🌐 Sitio
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dominio previsto:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+[lynk.ignaciofianza.com](https://lynk.ignaciofianza.com)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+> El dominio podrá cambiar a medida que el proyecto evolucione.
 
-## Learn More
+## Sobre lynk
 
-To learn more about Next.js, take a look at the following resources:
+lynk nace con la idea de acercar soluciones tecnológicas confiables a empresas, comercios, proyectos y particulares.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sus principales áreas de trabajo incluyen:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Redes e infraestructura
+- Seguridad y videovigilancia
+- Desarrollo web
+- Equipos informáticos
+- Mantenimiento y soporte técnico
 
-## Deploy on Vercel
+El enfoque está puesto en resolver necesidades reales con soluciones claras, adecuadas a cada proyecto y sin complejidad innecesaria.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Tecnologías
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+El sitio está desarrollado con:
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Motion
+- Lucide Icons
+
+## 🎨 Identidad visual
+
+La interfaz de lynk sigue una estética limpia, tecnológica y profesional, tomando como base la identidad visual de la marca.
+
+### Paleta principal
+
+- `#00D5FF` — Cyan
+- `#00B8E6` — Cyan secundario
+- `#5A7C99` — Azul grisáceo
+- `#31465B` — Slate
+- `#0D1523` — Navy
+- `#070B12` — Negro
+
+La dirección tipográfica combina una sans serif moderna con una serif editorial utilizada como acento en determinados títulos y elementos visuales.
+
+## 📱 Experiencia
+
+El sitio está pensado para ofrecer una experiencia consistente tanto en escritorio como en dispositivos móviles.
+
+La interfaz prioriza:
+
+- Navegación clara
+- Jerarquía tipográfica marcada
+- Diseño responsive
+- Animaciones sutiles
+- Accesibilidad
+- Tiempos de carga reducidos
+- Identidad visual consistente
+
+## 🗺️ Secciones
+
+El proyecto contempla distintas áreas independientes mediante Next.js App Router:
+
+- Inicio
+- Servicios
+- Nosotros
+- Preguntas frecuentes
+- Contacto
+
+Estas secciones se encuentran en desarrollo y podrán ampliarse a medida que lynk evolucione.
+
+## 🚧 Estado
+
+**En desarrollo.**
+
+Actualmente el foco está puesto en definir y consolidar:
+
+- Identidad visual
+- Home
+- Navegación
+- Diseño responsive
+- Componentes reutilizables
+- Estructura general del sitio
+
+## 👤 Desarrollo
+
+Diseñado y desarrollado por **Ignacio Fianza**.
+
+Montevideo, Uruguay 🇺🇾
+
+## © Licencia
+
+© 2026 lynk. Todos los derechos reservados.
+
+El código, la identidad visual, los recursos gráficos y demás contenidos propios de este repositorio no pueden ser reutilizados, redistribuidos o publicados sin autorización.
