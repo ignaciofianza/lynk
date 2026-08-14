@@ -32,14 +32,43 @@ export function PageTransitionProvider({
   const [isTransitioning, setIsTransitioning] =
     useState(false);
 
-  const [covered, setCovered] = useState(false);
+  const [covered, setCovered] =
+    useState(false);
 
   const navigate = (href: string) => {
-    if (isTransitioning) {
+    if (href === pathname) {
       return;
     }
 
-    if (href === pathname) {
+    const isMobile =
+      window.matchMedia(
+        "(max-width: 767px)",
+      ).matches;
+
+    /*
+     * Mobile
+     * ------
+     * No usamos la cortina.
+     * Safari/iOS puede trabarse con el overlay
+     * fullscreen durante la navegación.
+     */
+    if (isMobile) {
+      router.push(href);
+
+      window.scrollTo({
+        top: 0,
+        behavior: "instant",
+      });
+
+      return;
+    }
+
+    /*
+     * Desktop
+     * -------
+     * Transición completa de Lynk.
+     */
+    if (isTransitioning) {
       return;
     }
 
@@ -59,7 +88,7 @@ export function PageTransitionProvider({
 
         window.setTimeout(() => {
           setIsTransitioning(false);
-        }, 320);
+        }, 340);
       }, 70);
     }, 260);
   };
@@ -80,7 +109,9 @@ export function PageTransitionProvider({
           x: covered ? "0%" : "102%",
         }}
         transition={{
-          duration: covered ? 0.24 : 0.3,
+          duration: covered
+            ? 0.24
+            : 0.3,
           ease: transitionEase,
         }}
         style={{
@@ -90,7 +121,9 @@ export function PageTransitionProvider({
           pointer-events-none
           fixed inset-0
           z-9997
+          hidden
           bg-[#00D5FF]
+          md:block
         "
       />
 
@@ -101,7 +134,7 @@ export function PageTransitionProvider({
           x: covered ? "0%" : "100%",
         }}
         transition={{
-          duration: covered ? 0.34 : 0.34,
+          duration: 0.34,
           ease: transitionEase,
         }}
         style={{
@@ -111,8 +144,10 @@ export function PageTransitionProvider({
           pointer-events-none
           fixed inset-0
           z-9998
+          hidden
           overflow-hidden
           bg-[#0D1523]
+          md:block
         "
       >
         {/* Texture */}
@@ -125,35 +160,31 @@ export function PageTransitionProvider({
           "
         />
 
-        {/* Desktop-only glow */}
+        {/* Main glow */}
         <div
           className="
             absolute left-1/2 top-1/2
-            hidden
             h-105 w-105
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
             bg-[#00D5FF]/10
             blur-[110px]
-            md:block
           "
         />
 
-        {/* Desktop-only secondary glow */}
+        {/* Secondary glow */}
         <div
           className="
             absolute -bottom-24 -right-24
-            hidden
             h-72 w-72
             rounded-full
             bg-[#00D5FF]/7
             blur-[90px]
-            md:block
           "
         />
 
-        {/* Subtle edge glow */}
+        {/* Cyan edge */}
         <div
           className="
             absolute inset-y-0 left-0
@@ -172,30 +203,40 @@ export function PageTransitionProvider({
           y: covered ? 0 : 6,
         }}
         transition={{
-          duration: covered ? 0.18 : 0.14,
-          delay: covered ? 0.1 : 0,
-          ease: [0.22, 1, 0.36, 1],
+          duration: covered
+            ? 0.18
+            : 0.14,
+          delay: covered
+            ? 0.1
+            : 0,
+          ease: [
+            0.22,
+            1,
+            0.36,
+            1,
+          ],
         }}
         style={{
-          willChange: "transform, opacity",
+          willChange:
+            "transform, opacity",
         }}
         className="
           pointer-events-none
           fixed inset-0
           z-9999
-          flex items-center
+          hidden
+          items-center
           justify-center
+          md:flex
         "
       >
         <div className="text-center">
           <span
             className="
-              text-xs font-semibold
+              text-sm font-semibold
               uppercase
-              tracking-[0.32em]
+              tracking-[0.35em]
               text-white
-              sm:text-sm
-              sm:tracking-[0.35em]
             "
           >
             Lynk
@@ -215,7 +256,8 @@ export function PageTransitionProvider({
 }
 
 export function usePageTransition() {
-  const context = useContext(TransitionContext);
+  const context =
+    useContext(TransitionContext);
 
   if (!context) {
     throw new Error(
