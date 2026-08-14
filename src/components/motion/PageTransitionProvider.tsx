@@ -19,6 +19,8 @@ type TransitionContextType = {
 const TransitionContext =
   createContext<TransitionContextType | null>(null);
 
+const transitionEase = [0.76, 0, 0.24, 1] as const;
+
 export function PageTransitionProvider({
   children,
 }: {
@@ -57,9 +59,9 @@ export function PageTransitionProvider({
 
         window.setTimeout(() => {
           setIsTransitioning(false);
-        }, 400);
-      }, 80);
-    }, 250);
+        }, 320);
+      }, 70);
+    }, 260);
   };
 
   return (
@@ -71,36 +73,39 @@ export function PageTransitionProvider({
     >
       {children}
 
-      {/* Cyan blur layer */}
+      {/* Cyan underlayer */}
       <motion.div
         initial={false}
         animate={{
-          x: covered ? "0%" : "105%",
+          x: covered ? "0%" : "102%",
         }}
         transition={{
-          duration: covered ? 0.28 : 0.34,
-          ease: [0.76, 0, 0.24, 1],
+          duration: covered ? 0.24 : 0.3,
+          ease: transitionEase,
+        }}
+        style={{
+          willChange: "transform",
         }}
         className="
           pointer-events-none
           fixed inset-0
           z-9997
-          bg-[#00D5FF]/35
-          backdrop-blur-xl
+          bg-[#00D5FF]
         "
       />
 
-      {/* Main navy panel */}
+      {/* Main navy curtain */}
       <motion.div
         initial={false}
         animate={{
-          clipPath: covered
-            ? "inset(0% 0% 0% 0%)"
-            : "inset(0% 0% 0% 100%)",
+          x: covered ? "0%" : "100%",
         }}
         transition={{
-          duration: covered ? 0.38 : 0.38,
-          ease: [0.76, 0, 0.24, 1],
+          duration: covered ? 0.34 : 0.34,
+          ease: transitionEase,
+        }}
+        style={{
+          willChange: "transform",
         }}
         className="
           pointer-events-none
@@ -114,75 +119,70 @@ export function PageTransitionProvider({
         <div
           className="
             absolute inset-0
-            opacity-[0.055]
+            opacity-[0.045]
             bg-[radial-gradient(circle_at_center,white_1px,transparent_1px)]
-            bg-size-[18px_18px]
+            bg-size-[20px_20px]
           "
         />
 
-        {/* Soft cyan glow */}
+        {/* Desktop-only glow */}
         <div
           className="
             absolute left-1/2 top-1/2
+            hidden
             h-105 w-105
             -translate-x-1/2
             -translate-y-1/2
             rounded-full
-            bg-[#00D5FF]/12
-            blur-[120px]
+            bg-[#00D5FF]/10
+            blur-[110px]
+            md:block
           "
         />
 
-        {/* Secondary glow */}
+        {/* Desktop-only secondary glow */}
         <div
           className="
             absolute -bottom-24 -right-24
+            hidden
             h-72 w-72
             rounded-full
-            bg-[#00D5FF]/8
-            blur-[100px]
+            bg-[#00D5FF]/7
+            blur-[90px]
+            md:block
+          "
+        />
+
+        {/* Subtle edge glow */}
+        <div
+          className="
+            absolute inset-y-0 left-0
+            w-px
+            bg-[#00D5FF]/60
+            shadow-[0_0_24px_rgba(0,213,255,0.35)]
           "
         />
       </motion.div>
-
-      {/* Cyan leading edge */}
-      <motion.div
-        initial={false}
-        animate={{
-          x: covered ? "0%" : "100vw",
-          opacity: covered ? 1 : 0,
-        }}
-        transition={{
-          duration: covered ? 0.38 : 0.34,
-          ease: [0.76, 0, 0.24, 1],
-        }}
-        className="
-          pointer-events-none
-          fixed inset-y-0 right-0
-          z-9999
-          w-0.75
-          bg-[#00D5FF]
-          shadow-[0_0_30px_rgba(0,213,255,0.55)]
-        "
-      />
 
       {/* Branding */}
       <motion.div
         initial={false}
         animate={{
           opacity: covered ? 1 : 0,
-          scale: covered ? 1 : 0.975,
-          y: covered ? 0 : 8,
+          y: covered ? 0 : 6,
         }}
         transition={{
-          duration: 0.2,
-          delay: covered ? 0.12 : 0,
+          duration: covered ? 0.18 : 0.14,
+          delay: covered ? 0.1 : 0,
           ease: [0.22, 1, 0.36, 1],
+        }}
+        style={{
+          willChange: "transform, opacity",
         }}
         className="
           pointer-events-none
           fixed inset-0
-          z-10000
+          z-9999
           flex items-center
           justify-center
         "
@@ -190,10 +190,12 @@ export function PageTransitionProvider({
         <div className="text-center">
           <span
             className="
-              text-sm font-semibold
+              text-xs font-semibold
               uppercase
-              tracking-[0.35em]
+              tracking-[0.32em]
               text-white
+              sm:text-sm
+              sm:tracking-[0.35em]
             "
           >
             Lynk
