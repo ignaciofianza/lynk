@@ -7,7 +7,7 @@ import Footer from "@/components/ui/Footer";
 import { PageTransitionProvider } from "@/components/motion/PageTransitionProvider";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://lynk.ignaciofianza.com"),
+  metadataBase: new URL("https://lynk-psi.vercel.app"),
 
   title: {
     default: "Inicio | Lynk",
