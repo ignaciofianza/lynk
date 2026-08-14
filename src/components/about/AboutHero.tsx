@@ -1,6 +1,6 @@
 import Reveal from "@/components/motion/Reveal";
 
-export default function ServicesHero() {
+export default function AboutHero() {
   return (
     <section
       className="
@@ -34,7 +34,7 @@ export default function ServicesHero() {
                 text-[#5A7C99]
               "
             >
-              Servicios
+              Nosotros
             </p>
 
             <span
@@ -46,7 +46,7 @@ export default function ServicesHero() {
                 sm:block
               "
             >
-              /01 — 04
+              Montevideo · Uruguay
             </span>
           </div>
         </Reveal>
@@ -56,39 +56,37 @@ export default function ServicesHero() {
             className="
               grid gap-14
               pt-12
-              lg:grid-cols-[1.15fr_0.85fr]
+              lg:grid-cols-[1.15fr_0.75fr]
               lg:gap-24
             "
           >
-            <div>
-              <h1
-                className="
-                  max-w-5xl
-                  text-[4.5rem]
-                  font-semibold
-                  leading-[0.86]
-                  tracking-[-0.065em]
-                  text-[#0D1523]
-                  sm:text-[6rem]
-                  lg:text-[7.2rem]
-                "
-              >
-                Servicios para
-                <br />
-                resolver lo que
-                <br />
+            <h1
+              className="
+                max-w-5xl
+                text-[4.4rem]
+                font-semibold
+                leading-[0.86]
+                tracking-[-0.065em]
+                text-[#0D1523]
+                sm:text-[5.8rem]
+                lg:text-[7.2rem]
+              "
+            >
+              Dos personas.
+              <br />
+              Una misma idea.
+              <br />
 
-                <span className="text-[#00B8E6]">
-                  necesitás.
-                </span>
-              </h1>
-            </div>
+              <span className="text-[#00B8E6]">
+                Lynk.
+              </span>
+            </h1>
 
             <div
               className="
                 flex flex-col
                 justify-end
-                gap-8
+                gap-7
                 lg:pb-2
               "
             >
@@ -100,8 +98,8 @@ export default function ServicesHero() {
                   sm:text-xl
                 "
               >
-                En Lynk trabajamos distintas áreas que pueden funcionar por
-                separado o combinarse según las necesidades de cada proyecto.
+                Lynk nace entre dos amigos con el deseo de crear algo propio y
+                hacer las cosas de una manera diferente.
               </p>
 
               <p
@@ -112,8 +110,8 @@ export default function ServicesHero() {
                   sm:text-lg
                 "
               >
-                Desde una instalación puntual hasta una solución más completa,
-                definimos el alcance según lo que realmente haga falta.
+                Desde Montevideo, construimos una marca pensada para crecer
+                junto a cada proyecto.
               </p>
             </div>
           </div>

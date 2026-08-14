@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
 import TransitionLink from "@/components/motion/TransitionLink";
 
-export default function ContactCTA() {
+export default function FAQCTA() {
   return (
     <section
       className="
@@ -16,57 +16,65 @@ export default function ContactCTA() {
       <Reveal
         className="
           mx-auto max-w-7xl
-          py-16
-          sm:py-20
+          py-14
+          sm:py-18
           lg:py-24
         "
       >
         <div
           className="
-            flex flex-col gap-10
+            flex flex-col
+            gap-8
             lg:flex-row
             lg:items-end
             lg:justify-between
+            lg:gap-12
           "
         >
           <div>
             <p
               className="
-                text-sm font-semibold
+                text-xs font-semibold
                 uppercase
-                tracking-[0.16em]
+                tracking-[0.14em]
                 text-[#5A7C99]
+                sm:text-sm
+                sm:tracking-[0.16em]
               "
             >
-              /04 — Contacto
+              /02 — ¿Quedó alguna duda?
             </p>
 
             <h2
               className="
-                mt-6
-                max-w-4xl
-                text-4xl font-semibold
-                leading-[0.95]
-                tracking-tighter
-                text-[#0D1523]
-                sm:text-5xl
-                lg:text-[4.4rem]
-              "
+    mt-5
+    max-w-4xl
+    text-[2.6rem]
+    font-semibold
+    leading-[0.95]
+    tracking-[-0.045em]
+    text-[#0D1523]
+    min-[420px]:text-[3rem]
+    sm:text-[3.6rem]
+    lg:text-[4.2rem]
+  "
             >
-              ¿Tenés algo para
-              <span className="ml-2 text-[#00B8E6]">
-                conectar?
-              </span>
+              Preguntanos
+              <br className="md:hidden" />
+              <span className="text-[#00B8E6] md:ml-2">directamente.</span>
             </h2>
 
             <p
               className="
-                mt-6 max-w-xl
-                text-lg leading-8
+                mt-5
+                max-w-xl
+                text-base leading-7
                 text-[#647586]
+                sm:text-lg
+                sm:leading-8
               "
             >
-              Contanos qué necesitás y vemos cómo podemos ayudarte.
+              Si tu pregunta no está acá, escribinos y vemos tu caso.
             </p>
           </div>
 
@@ -78,17 +86,17 @@ export default function ContactCTA() {
               items-center gap-3
               border-b border-[#0D1523]
               pb-1.5
-              text-lg font-semibold
+              text-base font-semibold
               text-[#0D1523]
               transition-colors duration-300
               hover:border-[#00B8E6]
               hover:text-[#00B8E6]
+              sm:text-lg
             "
           >
-            Hablemos
-
+            Contactanos
             <ArrowUpRight
-              size={20}
+              size={19}
               className="
                 transition-transform duration-300
                 group-hover:-translate-y-0.5

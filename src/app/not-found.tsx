@@ -1,70 +1,68 @@
 import { ArrowUpRight } from "lucide-react";
 
-import Reveal from "@/components/motion/Reveal";
 import TransitionLink from "@/components/motion/TransitionLink";
 
-export default function ServicesCTA() {
+export default function NotFound() {
   return (
-    <section
+    <main
       className="
-        border-t border-black/8
-        bg-[#F2F6F8]
+        flex min-h-[calc(100vh-80px)]
+        items-center
         px-6
         sm:px-8
       "
     >
-      <Reveal
+      <div
         className="
-          mx-auto max-w-7xl
+          mx-auto w-full max-w-7xl
           py-20
-          sm:py-24
-          lg:py-28
         "
       >
         <div
           className="
             grid gap-14
-            lg:grid-cols-[0.28fr_1fr]
-            lg:gap-16
+            border-t border-black/10
+            pt-10
+            lg:grid-cols-[0.35fr_1fr]
+            lg:gap-20
           "
         >
           <div>
             <p
               className="
-                text-sm font-semibold
-                uppercase
-                tracking-[0.16em]
-                text-[#5A7C99]
+                font-mono
+                text-sm
+                text-[#00B8E6]
               "
             >
-              /03 — ¿Algo distinto?
+              /404
             </p>
           </div>
 
           <div>
-            <h2
+            <h1
               className="
                 max-w-5xl
-                text-5xl font-semibold
-                leading-[0.92]
-                tracking-[-0.055em]
+                text-[4.5rem]
+                font-semibold
+                leading-[0.86]
+                tracking-[-0.065em]
                 text-[#0D1523]
-                sm:text-6xl
-                lg:text-[5rem]
+                sm:text-[6rem]
+                lg:text-[7rem]
               "
             >
-              No todo entra
-              <br className="hidden sm:block" />
-              en una lista de
+              Esta conexión
+              <br />
+              no lleva a
               <span className="ml-3 text-[#00B8E6]">
-                servicios.
+                ningún lado.
               </span>
-            </h2>
+            </h1>
 
             <div
               className="
-                mt-12
-                flex flex-col gap-10
+                mt-10 flex flex-col gap-8
                 border-t border-black/10
                 pt-8
                 lg:flex-row
@@ -74,19 +72,18 @@ export default function ServicesCTA() {
             >
               <p
                 className="
-                  max-w-2xl
+                  max-w-xl
                   text-lg leading-8
                   text-[#647586]
                   sm:text-xl
                 "
               >
-                Si tenés una necesidad particular, contanos el problema.
-                Podemos combinar distintas áreas de Lynk y pensar una solución
-                específica para tu proyecto.
+                La página que buscás no existe, cambió de dirección o nunca
+                estuvo conectada.
               </p>
 
               <TransitionLink
-                href="/contacto"
+                href="/"
                 className="
                   group inline-flex
                   w-fit shrink-0
@@ -100,7 +97,7 @@ export default function ServicesCTA() {
                   hover:text-[#00B8E6]
                 "
               >
-                Contanos tu caso
+                Volver al inicio
 
                 <ArrowUpRight
                   size={20}
@@ -114,7 +111,7 @@ export default function ServicesCTA() {
             </div>
           </div>
         </div>
-      </Reveal>
-    </section>
+      </div>
+    </main>
   );
 }

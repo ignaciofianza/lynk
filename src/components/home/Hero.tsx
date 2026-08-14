@@ -2,28 +2,23 @@ import { ArrowUpRight } from "lucide-react";
 
 import TransitionLink from "@/components/motion/TransitionLink";
 
-const areas = [
-  "Redes e infraestructura",
-  "Seguridad y cámaras",
-  "Desarrollo web",
-  "Equipos y soporte",
-];
-
 export default function Hero() {
   return (
     <section
       className="
         relative overflow-hidden
         border-b border-black/8
+        px-6
+        sm:px-8
       "
     >
       <div
         className="
           pointer-events-none
-          absolute left-[32%] -top-52
+          absolute left-[35%] -top-52
           h-180 w-220
           rounded-full
-          bg-[#00D5FF]/10
+          bg-[#00D5FF]/9
           blur-[160px]
         "
       />
@@ -31,22 +26,19 @@ export default function Hero() {
       <div
         className="
           relative mx-auto
-          grid min-h-205
+          flex min-h-190
           max-w-7xl
           items-center
-          gap-16
-          px-6 py-24
-          sm:px-8
-          lg:grid-cols-[1.2fr_0.5fr]
-          lg:gap-24
+          py-24
+          lg:min-h-200
           lg:py-28
         "
       >
-        <div>
+        <div className="w-full max-w-6xl">
           <div
             className="
-              mb-9
-              flex items-center gap-4
+              mb-9 flex
+              items-center gap-4
             "
           >
             <span
@@ -69,74 +61,61 @@ export default function Hero() {
                 text-[#5A7C99]
               "
             >
-              Tecnología · Infraestructura · Uruguay
+              Montevideo · Uruguay
             </p>
           </div>
 
           <h1
             className="
               max-w-5xl
-              text-[4.7rem]
+              text-[4.6rem]
               font-semibold
               leading-[0.84]
               tracking-[-0.07em]
               text-[#0D1523]
-              sm:text-[6.1rem]
+              sm:text-[6rem]
               lg:text-[7.8rem]
             "
           >
-            Conectamos
+            Unimos lo que
+            <br />
+            otros dejan
             <br />
 
             <span className="text-[#00B8E6]">
-              tecnología
+              separado.
             </span>
-
-            <br />
-            con tu negocio.
           </h1>
 
           <div
             className="
-              mt-12 grid gap-10
+              mt-12
+              flex max-w-4xl
+              flex-col gap-8
               border-t border-black/10
               pt-8
-              lg:grid-cols-[1fr_auto]
+              lg:flex-row
               lg:items-end
+              lg:justify-between
             "
           >
-            <div>
-              <p
-                className="
-                  max-w-2xl
-                  text-lg leading-8
-                  text-[#647586]
-                  sm:text-xl
-                "
-              >
-                Redes, seguridad, infraestructura, desarrollo y soporte
-                tecnológico para empresas y proyectos que necesitan soluciones
-                confiables.
-              </p>
-
-              <p
-                className="
-                  mt-5
-                  text-sm font-medium
-                  text-[#31465B]
-                "
-              >
-                <span className="font-semibold text-[#00B8E6]">
-                  Lynk
-                </span>{" "}
-                conecta las piezas para que todo funcione mejor.
-              </p>
-            </div>
+            <p
+              className="
+                max-w-2xl
+                text-lg leading-8
+                text-[#647586]
+                sm:text-xl
+              "
+            >
+              Redes, seguridad, desarrollo y soporte bajo una misma mirada.
+              Una forma más simple de resolver necesidades que normalmente
+              terminan repartidas entre distintos proveedores.
+            </p>
 
             <div
               className="
-                flex flex-wrap
-                items-center gap-6
+                flex shrink-0
+                flex-wrap items-center gap-6
               "
             >
               <TransitionLink
@@ -166,7 +145,7 @@ export default function Hero() {
               </TransitionLink>
 
               <TransitionLink
-                href="/contacto"
+                href="/nosotros"
                 className="
                   text-base font-semibold
                   text-[#5A7C99]
@@ -174,67 +153,11 @@ export default function Hero() {
                   hover:text-[#0D1523]
                 "
               >
-                Hablemos
+                Conocé Lynk
               </TransitionLink>
             </div>
           </div>
         </div>
-
-        <aside
-          className="
-            border-l border-black/10
-            pl-8
-            lg:mt-24
-          "
-        >
-          <p
-            className="
-              text-xs font-semibold
-              uppercase
-              tracking-[0.18em]
-              text-[#5A7C99]
-            "
-          >
-            Lo que conectamos
-          </p>
-
-          <div className="mt-8">
-            {areas.map((area, index) => (
-              <div
-                key={area}
-                className="
-                  flex items-start gap-4
-                  border-b border-black/8
-                  py-5
-                  first:pt-0
-                "
-              >
-                <span
-                  className="
-                    pt-1
-                    font-mono
-                    text-xs
-                    text-[#00B8E6]
-                  "
-                >
-                  /0{index + 1}
-                </span>
-
-                <p
-                  className="
-                    text-xl font-semibold
-                    leading-tight
-                    tracking-[-0.035em]
-                    text-[#31465B]
-                    lg:text-2xl
-                  "
-                >
-                  {area}
-                </p>
-              </div>
-            ))}
-          </div>
-        </aside>
       </div>
     </section>
   );

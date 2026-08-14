@@ -1,6 +1,6 @@
 import Reveal from "@/components/motion/Reveal";
 
-export default function ServicesHero() {
+export default function ContactHero() {
   return (
     <section
       className="
@@ -12,8 +12,9 @@ export default function ServicesHero() {
       <div
         className="
           mx-auto max-w-7xl
-          pt-24 pb-20
+          pt-20 pb-16
           sm:pt-28
+          sm:pb-20
           lg:pt-32
           lg:pb-24
         "
@@ -23,18 +24,20 @@ export default function ServicesHero() {
             className="
               flex items-center justify-between gap-8
               border-b border-black/10
-              pb-8
+              pb-6
+              sm:pb-8
             "
           >
             <p
               className="
-                text-sm font-semibold
+                text-xs font-semibold
                 uppercase
                 tracking-[0.18em]
                 text-[#5A7C99]
+                sm:text-sm
               "
             >
-              Servicios
+              Contacto
             </p>
 
             <span
@@ -46,7 +49,7 @@ export default function ServicesHero() {
                 sm:block
               "
             >
-              /01 — 04
+              Montevideo · Uruguay
             </span>
           </div>
         </Reveal>
@@ -54,54 +57,56 @@ export default function ServicesHero() {
         <Reveal delay={0.04}>
           <div
             className="
-              grid gap-14
-              pt-12
-              lg:grid-cols-[1.15fr_0.85fr]
+              grid gap-10
+              pt-10
+              sm:gap-14
+              sm:pt-12
+              lg:grid-cols-[1.15fr_0.75fr]
               lg:gap-24
             "
           >
-            <div>
-              <h1
-                className="
-                  max-w-5xl
-                  text-[4.5rem]
-                  font-semibold
-                  leading-[0.86]
-                  tracking-[-0.065em]
-                  text-[#0D1523]
-                  sm:text-[6rem]
-                  lg:text-[7.2rem]
-                "
-              >
-                Servicios para
-                <br />
-                resolver lo que
-                <br />
+            <h1
+              className="
+                max-w-full
+                text-[3.35rem]
+                font-semibold
+                leading-[0.88]
+                tracking-[-0.06em]
+                text-[#0D1523]
+                sm:max-w-5xl
+                sm:text-[5.8rem]
+                lg:text-[7.2rem]
+              "
+            >
+              Contanos qué
+              <br />
+              querés
+              <br className="sm:hidden" />
 
-                <span className="text-[#00B8E6]">
-                  necesitás.
-                </span>
-              </h1>
-            </div>
+              <span className="text-[#00B8E6] sm:ml-3">
+                resolver.
+              </span>
+            </h1>
 
             <div
               className="
                 flex flex-col
                 justify-end
-                gap-8
+                gap-6
                 lg:pb-2
               "
             >
               <p
                 className="
                   max-w-xl
-                  text-lg leading-8
+                  text-base leading-7
                   text-[#647586]
                   sm:text-xl
+                  sm:leading-8
                 "
               >
-                En Lynk trabajamos distintas áreas que pueden funcionar por
-                separado o combinarse según las necesidades de cada proyecto.
+                Una idea, una necesidad o algo que no está funcionando como
+                debería.
               </p>
 
               <p
@@ -112,8 +117,7 @@ export default function ServicesHero() {
                   sm:text-lg
                 "
               >
-                Desde una instalación puntual hasta una solución más completa,
-                definimos el alcance según lo que realmente haga falta.
+                Contanos el contexto y vemos cómo podemos ayudarte.
               </p>
             </div>
           </div>

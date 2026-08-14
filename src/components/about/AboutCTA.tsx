@@ -3,12 +3,11 @@ import { ArrowUpRight } from "lucide-react";
 import Reveal from "@/components/motion/Reveal";
 import TransitionLink from "@/components/motion/TransitionLink";
 
-export default function ContactCTA() {
+export default function AboutCTA() {
   return (
     <section
       className="
         border-t border-black/10
-        bg-[#F2F6F8]
         px-6
         sm:px-8
       "
@@ -50,12 +49,12 @@ export default function ContactCTA() {
                 tracking-tighter
                 text-[#0D1523]
                 sm:text-5xl
-                lg:text-[4.4rem]
+                lg:text-[4.3rem]
               "
             >
-              ¿Tenés algo para
+              ¿Hacemos algo
               <span className="ml-2 text-[#00B8E6]">
-                conectar?
+                juntos?
               </span>
             </h2>
 
@@ -66,7 +65,8 @@ export default function ContactCTA() {
                 text-[#647586]
               "
             >
-              Contanos qué necesitás y vemos cómo podemos ayudarte.
+              Si tenés una idea, una necesidad o un problema para resolver,
+              queremos conocerlo.
             </p>
           </div>
 

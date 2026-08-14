@@ -1,14 +1,22 @@
-import Link from "next/link";
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
+
+import TransitionLink from "@/components/motion/TransitionLink";
+
+const navigation = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "FAQ", href: "/faq" },
+  { label: "Contacto", href: "/contacto" },
+];
 
 export default function Footer() {
   return (
     <footer
       className="
-        border-t border-white/10
         bg-[#070B12]
-        px-6 text-white
+        px-6
+        text-white
         sm:px-8
       "
     >
@@ -17,172 +25,204 @@ export default function Footer() {
           className="
             grid gap-16
             py-16
-            lg:grid-cols-[1.25fr_0.75fr]
-            lg:items-end
+            lg:grid-cols-[1.15fr_0.45fr_0.55fr]
+            lg:gap-20
             lg:py-20
           "
         >
+          {/* Brand statement */}
           <div>
-            <Image
-              src="/images/lynk_primary-nobg.png"
-              alt="lynk"
-              width={220}
-              height={90}
+            <h2
               className="
-    h-auto
-    w-37.5
-    object-contain
-  "
-            />
-
-            <p
-              className="
-                mt-8 max-w-2xl
+                mt-6
+                max-w-2xl
                 text-4xl font-semibold
-                leading-none
-                tracking-[-0.045em]
+                leading-[0.96]
+                tracking-tighter
                 text-white
                 sm:text-5xl
+                lg:text-[4rem]
               "
             >
-              Tecnología pensada para{" "}
-              <span
-                className="
-                  font-serif
-                  inline-block
-                  font-normal italic
-                  tracking-[-0.02em]
-                  text-[#00D5FF]
-                "
-              >
-                conectar mejor.
-              </span>
-            </p>
+              Distintas áreas.
+              <br />
+              Una misma forma de
+              <span className="ml-2 text-[#00D5FF]">resolver.</span>
+            </h2>
 
             <p
               className="
                 mt-6 max-w-xl
                 text-base leading-7
-                text-white/55
+                text-white/45
+                sm:text-lg
               "
             >
-              Redes, seguridad, infraestructura, desarrollo y soporte
-              tecnológico desde Montevideo, Uruguay.
+              Redes, seguridad, desarrollo y soporte para proyectos que
+              necesitan algo más que soluciones aisladas.
             </p>
           </div>
 
-          <div
-            className="
-              grid gap-12
-              sm:grid-cols-2
-              lg:justify-self-end
-              lg:gap-16
-            "
-          >
-            <div>
-              <p
-                className="
-                  text-xs font-semibold
-                  uppercase tracking-[0.18em]
-                  text-white/35
-                "
-              >
-                Navegación
-              </p>
+          {/* Navigation */}
+          <div>
+            <p
+              className="
+                text-xs font-semibold
+                uppercase
+                tracking-[0.16em]
+                text-white/30
+              "
+            >
+              Navegación
+            </p>
 
-              <nav
-                className="
-                  mt-6 flex flex-col
-                  gap-3
-                  text-base font-medium
-                  text-white/70
-                "
-              >
-                <Link
-                  href="/servicios"
-                  className="transition-colors hover:text-[#00D5FF]"
-                >
-                  Servicios
-                </Link>
-
-                <Link
-                  href="/nosotros"
-                  className="transition-colors hover:text-[#00D5FF]"
-                >
-                  Nosotros
-                </Link>
-
-                <Link
-                  href="/faq"
-                  className="transition-colors hover:text-[#00D5FF]"
-                >
-                  FAQ
-                </Link>
-
-                <Link
-                  href="/contacto"
-                  className="transition-colors hover:text-[#00D5FF]"
-                >
-                  Contacto
-                </Link>
-              </nav>
-            </div>
-
-            <div>
-              <p
-                className="
-                  text-xs font-semibold
-                  uppercase tracking-[0.18em]
-                  text-white/35
-                "
-              >
-                Contacto
-              </p>
-
-              <div
-                className="
-                  mt-6 space-y-3
-                  text-base text-white/70
-                "
-              >
-                <p>Montevideo, Uruguay</p>
-
-                <a
-                  href="mailto:contacto@lynk.uy"
+            <nav
+              className="
+                mt-6 flex
+                flex-col gap-3
+              "
+            >
+              {navigation.map((item) => (
+                <TransitionLink
+                  key={item.href}
+                  href={item.href}
                   className="
-                    group inline-flex items-center gap-2
-                    transition-colors
+                    w-fit
+                    text-base font-medium
+                    text-white/65
+                    transition-colors duration-300
                     hover:text-[#00D5FF]
                   "
                 >
-                  contacto@lynk.uy
-                  <ArrowUpRight
-                    size={16}
-                    className="
-                      transition-transform duration-300
-                      group-hover:-translate-y-0.5
-                      group-hover:translate-x-0.5
-                    "
-                  />
-                </a>
-              </div>
+                  {item.label}
+                </TransitionLink>
+              ))}
+            </nav>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <p
+              className="
+                text-xs font-semibold
+                uppercase
+                tracking-[0.16em]
+                text-white/30
+              "
+            >
+              Contacto
+            </p>
+
+            <div
+              className="
+                mt-6 flex
+                flex-col gap-3
+              "
+            >
+              <a
+                href="mailto:contacto@lynk.uy"
+                className="
+                  group flex w-fit
+                  items-center gap-2
+                  text-base font-medium
+                  text-white/65
+                  transition-colors duration-300
+                  hover:text-[#00D5FF]
+                "
+              >
+                contacto@lynk.uy
+                <ArrowUpRight
+                  size={15}
+                  className="
+                    transition-transform duration-300
+                    group-hover:-translate-y-0.5
+                    group-hover:translate-x-0.5
+                  "
+                />
+              </a>
+
+              <a
+                href="https://instagram.com/lynk.uy"
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  group flex w-fit
+                  items-center gap-2
+                  text-base font-medium
+                  text-white/65
+                  transition-colors duration-300
+                  hover:text-[#00D5FF]
+                "
+              >
+                @lynk.uy
+                <ArrowUpRight
+                  size={15}
+                  className="
+                    transition-transform duration-300
+                    group-hover:-translate-y-0.5
+                    group-hover:translate-x-0.5
+                  "
+                />
+              </a>
+
+              <a
+                href="https://wa.me/59899123456"
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  group flex w-fit
+                  items-center gap-2
+                  text-base font-medium
+                  text-white/65
+                  transition-colors duration-300
+                  hover:text-[#00D5FF]
+                "
+              >
+                WhatsApp
+                <ArrowUpRight
+                  size={15}
+                  className="
+                    transition-transform duration-300
+                    group-hover:-translate-y-0.5
+                    group-hover:translate-x-0.5
+                  "
+                />
+              </a>
+
+              <p
+                className="
+                  pt-2
+                  text-sm
+                  text-white/30
+                "
+              >
+                Montevideo, Uruguay
+              </p>
             </div>
           </div>
         </div>
 
         <div
           className="
-            flex flex-col gap-4
-            border-t border-white/10
+            flex flex-col gap-3
+            border-t border-white/8
             py-5
-            text-xs text-white/30
+            text-xs
+            text-white/25
             sm:flex-row
             sm:items-center
             sm:justify-between
           "
         >
-          <span>© 2026 lynk.</span>
-          <span>lynk.uy</span>
+          <p>© 2026 Lynk. Derechos reservados sobre el contenido propio.</p>
+
+          <div
+            className="
+              flex items-center gap-4
+            "
+          >
+            <span>Montevideo · Uruguay</span>
+          </div>
         </div>
       </div>
     </footer>

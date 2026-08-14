@@ -1,5 +1,5 @@
 import {
-  Camera,
+  Cctv,
   Code2,
   Cpu,
   Network,
@@ -27,7 +27,7 @@ const services = [
     title: "Seguridad y videovigilancia",
     description:
       "Soluciones de monitoreo y seguridad pensadas según las necesidades de cada espacio.",
-    icon: Camera,
+    icon: Cctv,
     items: [
       "Cámaras de seguridad",
       "Grabación y monitoreo",
@@ -67,9 +67,9 @@ export default function ServicesGrid() {
   return (
     <section
       className="
-        px-6 py-28
+        px-6 py-24
         sm:px-8
-        lg:py-40
+        lg:py-32
       "
     >
       <div className="mx-auto max-w-7xl">
@@ -97,14 +97,14 @@ export default function ServicesGrid() {
                   tracking-[-0.055em]
                   text-[#0D1523]
                   sm:text-6xl
-                  lg:text-[5rem]
+                  lg:text-[4.8rem]
                 "
               >
                 Cuatro áreas.
                 <br className="hidden sm:block" />
                 Una misma forma de
                 <span className="ml-3 text-[#00B8E6]">
-                  conectar.
+                  resolver.
                 </span>
               </h2>
 
@@ -116,21 +116,21 @@ export default function ServicesGrid() {
                   sm:text-xl
                 "
               >
-                Desde infraestructura hasta desarrollo, combinamos distintas
-                áreas para construir soluciones completas y coherentes.
+                Cada área puede funcionar de forma independiente o formar parte
+                de una solución más completa.
               </p>
             </div>
           </div>
         </Reveal>
 
-        <div className="border-t border-black/10">
+        <div>
           {services.map((service, index) => {
             const Icon = service.icon;
 
             return (
               <Reveal
                 key={service.title}
-                delay={index * 0.05}
+                delay={index * 0.04}
               >
                 <article
                   className="
@@ -168,20 +168,8 @@ export default function ServicesGrid() {
                   </span>
 
                   <div>
-                    <p
-                      className="
-                        text-xs font-semibold
-                        uppercase
-                        tracking-[0.16em]
-                        text-[#5A7C99]
-                      "
-                    >
-                      Conectamos
-                    </p>
-
                     <h2
                       className="
-                        mt-4
                         max-w-xl
                         text-4xl font-semibold
                         leading-[0.96]
@@ -212,7 +200,7 @@ export default function ServicesGrid() {
                       text-base
                       text-[#31465B]
                       sm:grid-cols-2
-                      lg:pt-8
+                      lg:pt-1
                     "
                   >
                     {service.items.map((item) => (
@@ -238,30 +226,16 @@ export default function ServicesGrid() {
 
                   <div
                     className="
-                      relative
                       flex h-12 w-12
                       items-center justify-center
                       rounded-full
                       border border-black/10
                       text-[#31465B]
-                      transition-all duration-300
-                      group-hover:border-[#00B8E6]/50
-                      group-hover:bg-[#00D5FF]/8
+                      transition-colors duration-300
+                      group-hover:border-[#00B8E6]/40
                       group-hover:text-[#00B8E6]
                     "
                   >
-                    <span
-                      className="
-                        absolute -right-1 -top-1
-                        h-2.5 w-2.5
-                        rounded-full
-                        bg-[#00D5FF]
-                        opacity-0
-                        transition-opacity duration-300
-                        group-hover:opacity-100
-                      "
-                    />
-
                     <Icon size={21} />
                   </div>
                 </article>

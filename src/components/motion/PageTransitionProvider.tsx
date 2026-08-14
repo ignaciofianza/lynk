@@ -196,7 +196,7 @@ export function PageTransitionProvider({
               text-white
             "
           >
-            lynk
+            Lynk
           </span>
 
           <div
